@@ -1,3 +1,7 @@
+using Microsoft.EntityFrameworkCore;
+using MusicShelfMini1.Data;
+using MusicShelfMini1.Data;
+
 namespace MusicShelfMiniASP
 {
     public class Program
@@ -9,7 +13,12 @@ namespace MusicShelfMiniASP
             // Add services to the container.
             builder.Services.AddControllersWithViews();
 
+
+            builder.Services.AddDbContext<ApplicationDbContext>(options =>
+            options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
             var app = builder.Build();
+
 
             // Configure the HTTP request pipeline.
             if (!app.Environment.IsDevelopment())
