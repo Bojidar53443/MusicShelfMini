@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using MusicShelfMini1.Data;
+using MusicShelfMini1.Entities;
 
 
 namespace MusicShelfMini1.Data

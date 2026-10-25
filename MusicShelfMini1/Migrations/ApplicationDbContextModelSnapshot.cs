@@ -21,7 +21,7 @@ namespace MusicShelfMini1.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("MusicShelfMini1.Album", b =>
+            modelBuilder.Entity("MusicShelfMini1.Entities.Album", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
