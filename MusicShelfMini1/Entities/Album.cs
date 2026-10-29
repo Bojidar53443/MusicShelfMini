@@ -22,5 +22,6 @@ namespace MusicShelfMini1.Entities
         //public List<Song> Songs { get; set; } = new List<Song>();
         //public int SongsCount => Songs.Count;
         public int SongsCount { get; set; }
+        public ICollection<Song> Songs { get; set; } = new List<Song>();
     }
 }

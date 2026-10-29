@@ -13,14 +13,12 @@ namespace MusicShelfMini1.Entities
 
         public string Title { get; set; } = string.Empty;
 
-        public string Artist { get; set; } = string.Empty;
-
-        public string Genre { get; set; } = string.Empty;
-
-        public int Year { get; set; }
-
-        public int AlbumId { get; set; }
-
+        public int? AlbumId { get; set; } 
         public Album? Album { get; set; }
+
+        public int? SongWriterId { get; set; }
+        public SongWriter? SongWriter { get; set; }
+
+        public ICollection<Review> Reviews { get; set; } = new List<Review>();
     }
 }
