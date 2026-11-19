@@ -1,17 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
-using MusicShelfMini1.Data;
+﻿using Microsoft.EntityFrameworkCore;
 using MusicShelfMini1.Entities;
-
 
 namespace MusicShelfMini1.Data
 {
     public class ApplicationDbContext : DbContext
     {
+        public ApplicationDbContext()
+        {
+        }
+
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {
@@ -28,16 +25,14 @@ namespace MusicShelfMini1.Data
             base.OnModelCreating(modelBuilder);
 
             modelBuilder.Entity<Song>()
-            .HasOne(s => s.SongWriter)
-            .WithMany(w => w.Songs)
-            .HasForeignKey(s => s.SongWriterId)
-            .OnDelete(DeleteBehavior.SetNull);
-
-   
+                .HasOne(s => s.SongWriter)
+                .WithMany(w => w.Songs)
+                .HasForeignKey(s => s.SongWriterId)
+                .OnDelete(DeleteBehavior.SetNull);
 
             modelBuilder.Entity<Review>()
                 .HasOne(r => r.Song)
-                .WithMany(s => s.Reviews) 
+                .WithMany(s => s.Reviews)
                 .HasForeignKey(r => r.SongId)
                 .OnDelete(DeleteBehavior.Cascade);
 

@@ -1,6 +1,10 @@
 ﻿@model MusicShelfMiniASP.ViewModels.Songs.SongsIndexViewModel
 
+<div class="alert alert-secondary small">@ViewBag.Conn</div>
+
 <h2>Списък с песни</h2>
+
+<a asp-action="Create" class="btn btn-primary mb-3">+ Добави песен</a>
 
 @if (!Model.Songs.Any())
 {

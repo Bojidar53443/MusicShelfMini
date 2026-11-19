@@ -9,5 +9,9 @@ namespace MusicShelfMini.Services
     public interface ISongService
     {
         Task<List<SongListDto>> GetAllAsync();
+        Task SeedAsync();
+        Task<List<SelectOptionDto>> GetAlbumOptionsAsync();
+        Task<List<SelectOptionDto>> GetSongWriterOptionsAsync();
+        Task CreateAsync(string title, int? albumId, int? songWriterId);
     }
 }
