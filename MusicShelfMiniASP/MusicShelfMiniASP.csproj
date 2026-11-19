@@ -19,6 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\MusicShelfMini.Services\MusicShelfMini.Services.csproj" />
     <ProjectReference Include="..\MusicShelfMini1\MusicShelfMini1.csproj" />
   </ItemGroup>
 
