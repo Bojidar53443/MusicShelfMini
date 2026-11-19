@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using MusicShelfMini.Services;
 using MusicShelfMini1.Data;
 using MusicShelfMini1.Data;
 
@@ -16,7 +17,7 @@ namespace MusicShelfMiniASP
 
             builder.Services.AddDbContext<ApplicationDbContext>(options =>
             options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
-
+            builder.Services.AddScoped<ISongService, SongService>();
             var app = builder.Build();
 
 

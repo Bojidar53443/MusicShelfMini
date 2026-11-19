@@ -1,39 +1,28 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using MusicShelfMini1.Data;
-using MusicShelfMini1.Entities;
-
+using MusicShelfMini.Services;
+using MusicShelfMiniASP.ViewModels.Songs;
 
 namespace MusicShelfMiniASP.Controllers
 {
     public class SongsController : Controller
     {
-        private readonly ApplicationDbContext context;
+        private readonly ISongService songService;
 
-        public SongsController(ApplicationDbContext context)
+        public SongsController(ISongService songService)
         {
-            this.context = context;
+            this.songService = songService;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            var songs = context.Songs.ToList();
-            return View(songs);
-        }
+            var songs = await songService.GetAllAsync();
 
-        public IActionResult Seed()
-        {
-            if (!context.Songs.Any())
+            var viewModel = new SongsIndexViewModel
             {
-                var song = new Song
-                {
-                    Title = "Instant Crush"
-                };
+                Songs = songs
+            };
 
-                context.Songs.Add(song);
-                context.SaveChanges();
-            }
-
-            return RedirectToAction(nameof(Index));
+            return View(viewModel);
         }
     }
 }

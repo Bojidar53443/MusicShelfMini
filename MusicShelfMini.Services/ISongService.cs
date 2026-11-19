@@ -2,11 +2,12 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using MusicShelfMini.Services;
 
 namespace MusicShelfMini.Services
 {
     public interface ISongService
     {
-        List<Song> GetAll();
+        Task<List<SongListDto>> GetAllAsync();
     }
 }
