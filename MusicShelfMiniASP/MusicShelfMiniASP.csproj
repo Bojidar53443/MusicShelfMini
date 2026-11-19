@@ -22,8 +22,4 @@
     <ProjectReference Include="..\MusicShelfMini1\MusicShelfMini1.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Views\Songs\" />
-  </ItemGroup>
-
 </Project>
